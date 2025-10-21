@@ -1,4 +1,4 @@
-/* ========== Global Styles ========== */
+/* ========== Global ========== */
 body {
   font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: #faf8f5;
@@ -11,7 +11,7 @@ body {
 /* ========== Header ========== */
 header {
   text-align: center;
-  padding: 2rem 1rem 1rem;
+  padding: 1.8rem 1rem 1rem;
   background-color: #f2ede7;
   border-bottom: 1px solid #ddd;
 }
@@ -38,12 +38,15 @@ nav a {
   color: #3b3b3b;
   margin: 0 1rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 nav a:hover,
 nav a.active {
   color: #6a513b;
+  border-color: #6a513b;
 }
 
 /* ========== Hero Section ========== */
@@ -60,12 +63,12 @@ nav a.active {
 
 /* ========== Products Grid ========== */
 .products {
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 3rem;
   text-align: center;
 }
 
 .products h2 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 1.5rem;
   color: #4a4a4a;
 }
@@ -84,6 +87,9 @@ nav a.active {
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   padding: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .product:hover {
@@ -93,10 +99,11 @@ nav a.active {
 
 .product img {
   width: 100%;
+  max-width: 220px;
   height: 180px;
   object-fit: cover;
   border-radius: 10px;
-  background-color: #eaeaea; /* placeholder background */
+  background-color: #eaeaea;
 }
 
 .product h3 {
@@ -115,6 +122,47 @@ nav a.active {
   font-weight: bold;
   color: #6a513b;
   margin-top: 0.5rem;
+}
+
+/* ========== Forms / Buttons ========== */
+form input[type="number"] {
+  width: 60px;
+  padding: 0.3rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.courier-option {
+  margin: 2rem 0 1rem;
+}
+
+.courier-option label {
+  font-size: 1rem;
+  color: #333;
+}
+
+.order-btn {
+  background-color: #6a513b;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-btn:hover {
+  background-color: #5a4331;
+}
+
+/* ========== Totals ========== */
+.total-box {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #333;
 }
 
 /* ========== About Section ========== */
@@ -156,15 +204,10 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* ========== Responsive Design ========== */
+/* ========== Responsive ========== */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 1.6rem;
-  }
-  .hero h2 {
-    font-size: 1.4rem;
-  }
-  .product img {
-    height: 160px;
-  }
+  h1 { font-size: 1.6rem; }
+  .hero h2 { font-size: 1.4rem; }
+  .product img { height: 160px; }
+  nav a { margin: 0 0.5rem; }
 }
