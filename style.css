@@ -1,1 +1,170 @@
-/* style.css content placeholder */
+/* ========== Global Styles ========== */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #faf8f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* ========== Header ========== */
+header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  background-color: #f2ede7;
+  border-bottom: 1px solid #ddd;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: 1px;
+  color: #3b3b3b;
+}
+
+.tagline {
+  font-style: italic;
+  color: #777;
+  margin: 0.25rem 0 1rem;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #3b3b3b;
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #6a513b;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+  color: #4b4b4b;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== Products Grid ========== */
+.products {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.products h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #4a4a4a;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.product {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.product img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #eaeaea; /* placeholder background */
+}
+
+.product h3 {
+  margin-top: 1rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.product p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.price {
+  font-weight: bold;
+  color: #6a513b;
+  margin-top: 0.5rem;
+}
+
+/* ========== About Section ========== */
+.about {
+  background-color: #f7f5f1;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ========== Footer ========== */
+footer {
+  text-align: center;
+  background-color: #f2ede7;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  color: #555;
+}
+
+footer a {
+  color: #6a513b;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  .hero h2 {
+    font-size: 1.4rem;
+  }
+  .product img {
+    height: 160px;
+  }
+}
