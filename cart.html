@@ -1,1 +1,139 @@
-<!-- cart.html content placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Grazed Naturals</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Grazed Naturals</h1>
+    <p class="tagline">Handcrafted essentials for everyday living</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html" class="active">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products">
+      <h2>Your Cart</h2>
+      <p>Review your order and click “Send Order” when ready.</p>
+
+      <form id="cartForm" oninput="updateTotal()" onsubmit="return sendCartEmail()">
+        <div class="product-grid">
+
+          <label class="product">
+            <h3>Tallow Balm</h3>
+            <p class="price">R180</p>
+            <input type="number" min="0" value="0" name="Tallow Balm">
+          </label>
+
+          <label class="product">
+            <h3>Mineral Sunscreen</h3>
+            <p class="price">R120</p>
+            <input type="number" min="0" value="0" name="Mineral Sunscreen">
+          </label>
+
+          <label class="product">
+            <h3>Electrolyte Mix</h3>
+            <p class="price">R80</p>
+            <input type="number" min="0" value="0" name="Electrolyte Mix">
+          </label>
+
+          <label class="product">
+            <h3>Spice Mix</h3>
+            <p class="price">R80</p>
+            <input type="number" min="0" value="0" name="Spice Mix">
+          </label>
+
+          <label class="product">
+            <h3>Cooking Tallow</h3>
+            <p class="price">R80</p>
+            <input type="number" min="0" value="0" name="Cooking Tallow">
+          </label>
+        </div>
+
+        <div class="courier-option">
+          <label>
+            <input type="checkbox" id="courier"> Add courier delivery (+R80)
+          </label>
+        </div>
+
+        <div class="total-box">
+          <p><strong>Total:</strong> <span id="totalAmount">R0</span></p>
+        </div>
+
+        <button type="submit" class="order-btn">Send Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Grazed Naturals | <a href="mailto:grazednaturals@gmail.com">grazednaturals@gmail.com</a></p>
+  </footer>
+
+  <script>
+    const prices = {
+      "Tallow Balm": 180,
+      "Mineral Sunscreen": 120,
+      "Electrolyte Mix": 80,
+      "Spice Mix": 80,
+      "Cooking Tallow": 80
+    };
+
+    function updateTotal() {
+      const form = document.getElementById('cartForm');
+      const formData = new FormData(form);
+      let total = 0;
+
+      for (const [key, value] of formData.entries()) {
+        if (value > 0) total += prices[key] * parseInt(value);
+      }
+
+      if (document.getElementById('courier').checked) {
+        total += 80;
+      }
+
+      document.getElementById('totalAmount').textContent = `R${total}`;
+    }
+
+    function sendCartEmail() {
+      const form = document.getElementById('cartForm');
+      const formData = new FormData(form);
+      const courier = document.getElementById('courier').checked;
+      let message = "New Grazed Naturals Order:\n\n";
+      let total = 0;
+
+      for (const [key, value] of formData.entries()) {
+        if (value > 0) {
+          const subtotal = prices[key] * parseInt(value);
+          message += `${key}: ${value} × R${prices[key]} = R${subtotal}\n`;
+          total += subtotal;
+        }
+      }
+
+      if (courier) {
+        message += "\nCourier delivery: +R80";
+        total += 80;
+      }
+
+      message += `\n\nTotal: R${total}`;
+
+      if (total === 0) {
+        alert("Please add at least one product to your cart.");
+        return false;
+      }
+
+      const subject = "New Grazed Naturals Order";
+      const body = encodeURIComponent(message);
+      const mailto = `mailto:grazednaturals@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.location.href = mailto;
+
+      return false;
+    }
+  </script>
+</body>
+</html>
