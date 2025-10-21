@@ -1,1 +1,111 @@
-<!-- shop.html content placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Grazed Naturals</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Grazed Naturals</h1>
+    <p class="tagline">Handcrafted essentials for everyday living</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products">
+      <h2>Shop Our Collection</h2>
+      <p>Select the items you’d like to order. We’ll confirm your total (plus R80 courier option if selected) by email.</p>
+
+      <form id="orderForm" onsubmit="return sendEmail()">
+        <div class="product-grid">
+          <label class="product">
+            <img src="images/tallow-balm.jpg" alt="Tallow Balm">
+            <h3>Tallow Balm</h3>
+            <p>Rich, nourishing balm for dry skin. Hand-rendered from halaal sources.</p>
+            <p class="price">R180</p>
+            <input type="number" min="0" value="0" name="Tallow Balm" />
+          </label>
+
+          <label class="product">
+            <img src="images/sunscreen.jpg" alt="Mineral Sunscreen">
+            <h3>Mineral Sunscreen</h3>
+            <p>Mineral-based, daily-use protection that’s gentle and natural.</p>
+            <p class="price">R120</p>
+            <input type="number" min="0" value="0" name="Mineral Sunscreen" />
+          </label>
+
+          <label class="product">
+            <img src="images/electrolyte-mix.jpg" alt="Electrolyte Mix">
+            <h3>Electrolyte Mix</h3>
+            <p>Natural hydration blend with essential minerals and no additives.</p>
+            <p class="price">R80</p>
+            <input type="number" min="0" value="0" name="Electrolyte Mix" />
+          </label>
+
+          <label class="product">
+            <img src="images/spice-mix.jpg" alt="Spice Mix">
+            <h3>Spice Mix</h3>
+            <p>Flavorful, handcrafted spice blend for your everyday meals.</p>
+            <p class="price">R80</p>
+            <input type="number" min="0" value="0" name="Spice Mix" />
+          </label>
+
+          <label class="product">
+            <img src="images/cooking-tallow.jpg" alt="Cooking Tallow">
+            <h3>Cooking Tallow</h3>
+            <p>Pure, slow-rendered beef tallow, perfect for cooking and baking.</p>
+            <p class="price">R80</p>
+            <input type="number" min="0" value="0" name="Cooking Tallow" />
+          </label>
+        </div>
+
+        <div class="courier-option">
+          <label>
+            <input type="checkbox" id="courier" />
+            Add courier delivery (+R80)
+          </label>
+        </div>
+
+        <button type="submit" class="order-btn">Place Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Grazed Naturals | <a href="mailto:grazednaturals@gmail.com">grazednaturals@gmail.com</a></p>
+  </footer>
+
+  <script>
+    function sendEmail() {
+      const form = document.getElementById('orderForm');
+      const formData = new FormData(form);
+      const courier = document.getElementById('courier').checked;
+      let message = "New Order:\n\n";
+
+      for (const [key, value] of formData.entries()) {
+        if (value > 0) message += `${key}: ${value}\n`;
+      }
+
+      if (courier) message += "\nCourier delivery: +R80";
+
+      if (message === "New Order:\n\n") {
+        alert("Please select at least one product.");
+        return false;
+      }
+
+      const subject = "New Grazed Naturals Order";
+      const body = encodeURIComponent(message);
+      const mailto = `mailto:grazednaturals@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      window.location.href = mailto;
+
+      return false; // prevent form submission
+    }
+  </script>
+</body>
+</html>
