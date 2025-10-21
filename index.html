@@ -1,90 +1,82 @@
-# Grazed Naturals — Website files (preview)
-
-Below are the files that make up your starter site, now with updated product prices. Review them here and tell me any further edits you want. After you approve, I'll package them into a ZIP and give you the upload instructions for GitHub Pages and Formspree.
-
----
-
-## `shop.html`
-```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Shop — Grazed Naturals</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grazed Naturals | Handcrafted Essentials</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="brand">Grazed Naturals</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="cart.html">Cart</a>
-      </nav>
-    </div>
+  <header>
+    <h1>Grazed Naturals</h1>
+    <p class="tagline">Handcrafted essentials for everyday living</p>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="cart.html">Cart</a>
+    </nav>
   </header>
 
-  <main class="container">
-    <h2>Our Products</h2>
+  <main>
+    <section class="hero">
+      <h2>Welcome to Grazed Naturals</h2>
+      <p>Pure, handcrafted products — made with care from natural, wholesome ingredients.</p>
+    </section>
 
-    <div class="products-grid">
-      <!-- Product: Tallow Balm -->
-      <article class="product-card" data-id="tallow-balm" data-price="180">
-        <img src="images/placeholder1.jpg" alt="Tallow Balm">
-        <h3>Tallow Balm</h3>
-        <p class="price">R180</p>
-        <p class="desc">Rich, nourishing balm for dry skin — handcrafted in small batches.</p>
-        <button class="add-btn">Add to cart</button>
-      </article>
+    <section class="products">
+      <h2>Our Products</h2>
+      <div class="product-grid">
+        <div class="product">
+          <img src="images/tallow-balm.jpg" alt="Tallow Balm" />
+          <h3>Tallow Balm</h3>
+          <p>Rich, nourishing balm for dry skin. Rendered by hand using halaal sources.</p>
+          <p class="price">R180</p>
+        </div>
 
-      <!-- Mineral Sunscreen -->
-      <article class="product-card" data-id="mineral-sunscreen" data-price="120">
-        <img src="images/placeholder2.jpg" alt="Mineral Sunscreen">
-        <h3>Mineral Sunscreen</h3>
-        <p class="price">R120</p>
-        <p class="desc">Gentle mineral-based sunscreen for everyday protection.</p>
-        <button class="add-btn">Add to cart</button>
-      </article>
+        <div class="product">
+          <img src="images/sunscreen.jpg" alt="Mineral Sunscreen" />
+          <h3>Mineral Sunscreen</h3>
+          <p>Mineral-based daily protection that’s gentle on skin and reef-safe.</p>
+          <p class="price">R120</p>
+        </div>
 
-      <!-- Electrolyte Mix -->
-      <article class="product-card" data-id="electrolyte-mix" data-price="90">
-        <img src="images/placeholder3.jpg" alt="Electrolyte Mix">
-        <h3>Electrolyte Mix</h3>
-        <p class="price">R90</p>
-        <p class="desc">Natural rehydration blend — great after exercise or during travel.</p>
-        <button class="add-btn">Add to cart</button>
-      </article>
+        <div class="product">
+          <img src="images/electrolyte-mix.jpg" alt="Electrolyte Mix" />
+          <h3>Electrolyte Mix</h3>
+          <p>Natural hydration blend — balanced minerals with no artificial additives.</p>
+          <p class="price">R80</p>
+        </div>
 
-      <!-- Spice Mix -->
-      <article class="product-card" data-id="spice-mix" data-price="70">
-        <img src="images/placeholder4.jpg" alt="Spice Mix">
-        <h3>Spice Mix</h3>
-        <p class="price">R70</p>
-        <p class="desc">A warming, handcrafted blend to brighten meals.</p>
-        <button class="add-btn">Add to cart</button>
-      </article>
+        <div class="product">
+          <img src="images/spice-mix.jpg" alt="Spice Mix" />
+          <h3>Spice Mix</h3>
+          <p>A handcrafted blend of spices for everyday cooking and flavor.</p>
+          <p class="price">R80</p>
+        </div>
 
-      <!-- Cooking Tallow -->
-      <article class="product-card" data-id="cooking-tallow" data-price="150">
-        <img src="images/placeholder5.jpg" alt="Cooking Tallow">
-        <h3>Cooking Tallow</h3>
-        <p class="price">R150</p>
-        <p class="desc">Rendered cooking tallow — clean fat for high-heat cooking.</p>
-        <button class="add-btn">Add to cart</button>
-      </article>
+        <div class="product">
+          <img src="images/cooking-tallow.jpg" alt="Cooking Tallow" />
+          <h3>Cooking Tallow</h3>
+          <p>Pure, slow-rendered beef tallow — perfect for high-heat cooking or baking.</p>
+          <p class="price">R80</p>
+        </div>
+      </div>
+    </section>
 
-    </div>
-
-    <a class="btn" href="cart.html">View Cart</a>
+    <section class="about">
+      <h2>About Grazed Naturals</h2>
+      <p>
+        At Grazed Naturals, we handcraft small-batch essentials with simplicity and honesty.
+        From skincare to kitchen staples, each item is made using wholesome ingredients and traditional methods.
+        Our tallow products are rendered by hand from halaal sources to ensure purity and care in every jar.
+      </p>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">© Grazed Naturals</div>
+  <footer>
+    <p>&copy; 2025 Grazed Naturals | <a href="mailto:grazednaturals@gmail.com">grazednaturals@gmail.com</a></p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-```
